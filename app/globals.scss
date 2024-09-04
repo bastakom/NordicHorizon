@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ul {
+  list-style: circle;
+} */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.button {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.02px;
+  color: #ffffff;
+  background: #b18b52 0% 0% no-repeat padding-box;
+  border-radius: 29px;
+  padding: 10px 40px;
+  min-width: 117px;
+}
+
+.justify-tiles {
+  justify-content: space-between;
+}
+
+.form {
+  gap: 20px;
+  input,
+  textarea {
+    width: 600px;
+    border: 1px solid black;
+    padding: 20px 30px;
+    border-radius: 29px;
+  }
+}
