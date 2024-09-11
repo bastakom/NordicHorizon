@@ -28,6 +28,16 @@ export async function fetchAllResor() {
   return data.json()
 }
 
+export async function fetchPaket(slug: string) {
+  const data = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories/resor/resepaket/${slug}?version=published&token=SHN4krlv8CPrDaEscXVWbQtt&cv=1726045046`
+  )
+  if (!data) {
+    return null
+  }
+  return data.json()
+}
+
 export async function fetchAllPaket() {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories?cv=1725970996&starts_with=resor/resepaket&token=${process.env.STORYBLOCK_API_TOKEN}&version=published`

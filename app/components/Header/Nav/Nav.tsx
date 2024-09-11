@@ -49,9 +49,13 @@ const Nav = ({ res, config }: Props) => {
                 <button>Resor</button>
                 {open && (
                   <div className="absolute p-5 -ml-6 text-white bg-[#16364D] flex flex-col shadow-lg z-50">
-                    {res.stories.map((el: any) => {
+                    {res.stories.map((el: any, index: number) => {
                       return (
-                        <Link href={`/${el.full_slug}`} className="p-2">
+                        <Link
+                          key={index}
+                          href={`/${el.full_slug}`}
+                          className="p-2"
+                        >
                           {el.name}
                         </Link>
                       )
@@ -60,7 +64,7 @@ const Nav = ({ res, config }: Props) => {
                 )}
               </div>
             ) : (
-              <Link href={item.link.cached_url} key={item._uid}>
+              <Link href={`/${item.link.cached_url}`} key={item._uid}>
                 {item.title}
               </Link>
             )
