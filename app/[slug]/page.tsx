@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import Form from '../components/Form/Form'
 import TileCards from '../components/TileCards/TileCards'
 import ImageText from '../components/ImageText/ImageText'

@@ -27,9 +27,9 @@ const Team = ({ data }: Props) => {
       <div className="h-[40vh] text-center w-full bg-[#16364D] flex justify-center items-center">
         <h2 className="text-white text-[25px]">KONTAKT</h2>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3  px-5 lg:px-20 pt-20 gap-10  pb-32 bg-[#E9EFED]">
+      <div className="flex flex-wrap m-auto justify-center  px-5 lg:px-20 pt-20 gap-40  pb-32 bg-[#E9EFED]">
         <div className="flex justify-center flex-col text-center gap-5">
-          <div className="relative h-[489px] w-full -mt-0 lg:-mt-48">
+          <div className="relative h-[400px] w-[320px] m-auto -mt-0 lg:-mt-48">
             <Image
               src={data.img_1.filename}
               alt={data.img_1.id}
@@ -47,7 +47,7 @@ const Team = ({ data }: Props) => {
           </div>
         </div>
         <div className="flex justify-center flex-col text-center gap-5">
-          <div className="relative h-[489px] w-full -mt-0 lg:-mt-48">
+          <div className="relative h-[400px] w-[320px] m-auto -mt-0 lg:-mt-48">
             <Image
               src={data.img_2.filename}
               alt={data.img_2.id}
@@ -65,7 +65,7 @@ const Team = ({ data }: Props) => {
           </div>
         </div>
         <div className="flex justify-center flex-col text-center gap-5">
-          <div className="relative h-[489px] w-full -mt-0 lg:-mt-48">
+          <div className="relative h-[400px] w-[320px] m-auto -mt-0 lg:-mt-48">
             <Image
               src={data.img_3.filename}
               alt={data.img_3.id}

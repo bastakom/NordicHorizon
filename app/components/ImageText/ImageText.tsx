@@ -32,17 +32,21 @@ const ImageText = ({ pageDesign, image, imageID, title, content }: Props) => {
           />
         </div>
 
-        <div className="grid gap-5 ml-5">
-          <h2
-            className={`${
-              pageDesign
-                ? 'text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]'
-                : 'text-[29px] lg:text-[29px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px]'
-            }`}
-          >
-            {title}
-          </h2>
-          <span className="text-[18px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light">
+        <div className="grid gap-10 ml-5">
+          {pageDesign ? (
+            <h2
+              className={`${'text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]'}`}
+            >
+              {title}
+            </h2>
+          ) : (
+            <h3
+              className={`${'text-[39px] lg:text-[35px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px]'}`}
+            >
+              {title}
+            </h3>
+          )}
+          <span className="text-[17px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light">
             {render(content)}
           </span>
         </div>
