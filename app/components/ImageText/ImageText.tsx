@@ -15,7 +15,7 @@ const ImageText = ({ pageDesign, image, imageID, title, content }: Props) => {
       <div
         className={`${
           pageDesign
-            ? 'flex grid grid-cols-1 p-5 lg:p-0 lg:grid-cols-[55%_45%] items-center gap-10'
+            ? 'flex grid grid-cols-1 p-5 lg:p-0 lg:grid-cols-[55%_45%] items-center gap-14'
             : 'my-10 lg:my-24 grid gap-10 lg:gap-20 px-5 lg:px-20 mx-auto grid-cols-1 lg:grid-cols-2 items-center'
         }`}
       >
@@ -32,17 +32,17 @@ const ImageText = ({ pageDesign, image, imageID, title, content }: Props) => {
           />
         </div>
 
-        <div className="grid gap-10">
+        <div className="grid gap-5 ml-5">
           <h2
             className={`${
               pageDesign
-                ? 'text-[35px] max-w-[100%] lg:max-w-[70%] font-light leading-[42px]'
-                : 'text-[40px] lg:text-[57px] max-w-[100%] lg:max-w-[90%] font-light leading-[50px] lg:leading-[68px]'
+                ? 'text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]'
+                : 'text-[29px] lg:text-[29px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px]'
             }`}
           >
             {title}
           </h2>
-          <span className="text-[20px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light">
+          <span className="text-[18px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light">
             {render(content)}
           </span>
         </div>

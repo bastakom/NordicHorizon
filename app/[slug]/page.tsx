@@ -5,6 +5,7 @@ import TileCards from '../components/TileCards/TileCards'
 import ImageText from '../components/ImageText/ImageText'
 import Hero from '../components/Hero/Hero'
 import { fetchConfig } from '../lib/apireq'
+import Team from '../components/Team/Team'
 
 async function fetchPageData(slug: string) {
   const data = await fetch(
@@ -46,7 +47,12 @@ export default async function page({
     },
   } = config
 
-  return (
+  return content.kontakt_pagedesign ? (
+    <div>
+      <Team data={content} />
+      <Form title={content.form_text} />
+    </div>
+  ) : (
     <div>
       <Hero img={content.video.filename} />
       <ImageText

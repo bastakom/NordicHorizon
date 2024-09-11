@@ -96,10 +96,10 @@ const Nav = ({ res, config }: Props) => {
             alt="Nordic Horizon Travel Group"
             className="mb-10"
           />
-          <Link onClick={handleOpenMenu} href="/">
+          <Link onClick={handleOpenMenu} href="/om-oss">
             Om oss
           </Link>
-          <Link onClick={handleOpenMenu} href="/">
+          <Link onClick={handleOpenMenu} href="/kontakt">
             Kontakt
           </Link>
           <div className="flex flex-col mt-20 text-[16px] absolute bottom-10 m-auto text-center">

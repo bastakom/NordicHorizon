@@ -54,7 +54,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           Array.isArray(matchedPaket) &&
           matchedPaket.map((item: any) => {
             return (
-              <div className="px-4 pt-4 pb-10 border-black  border w-full items-center text-center flex flex-col gap-8">
+              <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
                 <Image
                   src="https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
                   height={150}
@@ -63,8 +63,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
                   alt={item.name}
                 />
                 <span className="font-light">
-                  <h2 className="text-[30px]">{item.name}</h2>
-                  <span className="text-[14px]">{item.content.category}</span>
+                  <h3 className="text-[30px]">{item.name}</h3>
+                  <h2 className="text-[14px]">{item.content.category}</h2>
                 </span>
                 <span>{render(item.content.meta)}</span>
                 <Link
