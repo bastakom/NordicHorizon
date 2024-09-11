@@ -6,7 +6,12 @@ const Header = async () => {
   const config = await fetchConfig()
   const res = await fetchAllResor()
 
-  return <Nav res={res} config={config} />
+  return (
+    <div>
+   <div className="mb-10"/>
+      <Nav res={res} config={config} />
+    </div>
+  )
 }
 
 export default Header

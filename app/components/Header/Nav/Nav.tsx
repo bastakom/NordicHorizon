@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { RiMenuFill } from 'react-icons/ri'
+import { IoMdClose } from 'react-icons/io'
 
 interface Props {
   config: any
@@ -12,9 +13,10 @@ interface Props {
 
 const Nav = ({ res, config }: Props) => {
   const [open, setIsOpen] = useState(false)
+  const [openMenu, setIsOpenMenu] = useState(false)
   const {
     story: {
-      content: { menu, logo },
+      content: { menu, logo, footer_logo, mail, phone, orgnmr },
     },
   } = config
 
@@ -26,8 +28,12 @@ const Nav = ({ res, config }: Props) => {
     setIsOpen(false)
   }
 
+  const handleOpenMenu = () => {
+    setIsOpenMenu(!openMenu)
+  }
+
   return (
-    <div className="relative w-full px-10 py-5 bg-[#16364D] text-white">
+    <div className="fixed w-full px-10 py-5 bg-[#16364D] text-white z-50 top-0">
       <div className="flex justify-between items-center">
         <Link href="/" className="w-1/3">
           <Image
@@ -37,7 +43,7 @@ const Nav = ({ res, config }: Props) => {
             alt="Nordic Horizon"
           />
         </Link>
-        <div className="flex gap-14 w-full justify-end items-center">
+        <div className="flex gap-14 w-full justify-end items-center hidden xl:flex">
           {menu.map((item: any, index: number) => {
             return item.sub_menu ? (
               <div
@@ -69,8 +75,37 @@ const Nav = ({ res, config }: Props) => {
               </Link>
             )
           })}
-          <div>
-            <RiMenuFill fontSize={'2.6em'} />
+          <div
+            className={`menu-btn-6 mt-4 z-20 ${openMenu ? 'active' : ''}`}
+            onClick={handleOpenMenu}
+          >
+            <span />
+          </div>
+        </div>
+      </div>
+      <div
+        className={`fixed top-0 right-0 h-full bg-[#16364D] transition-transform duration-300 justify-center flex ease-in-out ${
+          openMenu ? 'translate-x-0' : 'translate-x-full'
+        } w-80`}
+      >
+        <div className="px-10 items-center flex flex-col gap-2 w-full mt-20 text-[20px] text-center">
+          <Image
+            src={footer_logo?.filename}
+            width={200}
+            height={99}
+            alt="Nordic Horizon Travel Group"
+            className="mb-10"
+          />
+          <Link onClick={handleOpenMenu} href="/">
+            Om oss
+          </Link>
+          <Link onClick={handleOpenMenu} href="/">
+            Kontakt
+          </Link>
+          <div className="flex flex-col mt-20 text-[16px] absolute bottom-10 m-auto text-center">
+            <Link href={`mailto:${mail}`}>{mail}</Link>
+            <Link href={`phone:${phone}`}>{phone}</Link>
+            <span>Orgnmr: {orgnmr}</span>
           </div>
         </div>
       </div>
