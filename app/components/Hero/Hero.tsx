@@ -22,7 +22,7 @@ const Hero = ({ img, alt, title, homeDesign, content }: Props) => {
             </div>
           )}
           {content.video_asset && content.video_asset ? (
-            <video autoPlay muted className="h-full w-full object-cover">
+            <video autoPlay muted loop className="h-full w-full object-cover">
               <source src={content.video_asset.filename} />
             </video>
           ) : (
