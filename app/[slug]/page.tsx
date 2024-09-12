@@ -52,7 +52,7 @@ export default async function page({
     </div>
   ) : (
     <div>
-      <Hero img={content.video.filename} />
+      <Hero img={content.video.filename} content={content} />
       <ImageText
         pageDesign={content.homedesign_pagedesign}
         image={content.img_image.filename}

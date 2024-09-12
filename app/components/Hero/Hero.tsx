@@ -1,13 +1,15 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 interface Props {
-  img: any
-  alt?: any
-  title?: string
-  homeDesign?: any
+  img: any;
+  alt?: any;
+  title?: string;
+  homeDesign?: any;
+  content?: any;
 }
 
-const Hero = ({ img, alt, title, homeDesign }: Props) => {
+const Hero = ({ img, alt, title, homeDesign, content }: Props) => {
+  
   return homeDesign
     ? null
     : img && (
@@ -19,9 +21,20 @@ const Hero = ({ img, alt, title, homeDesign }: Props) => {
               </h1>
             </div>
           )}
-          <Image className="object-cover" src={img} fill alt={alt || 'image'} />
+          {content.video_asset && content.video_asset ? (
+            <video autoPlay muted className="h-full w-full object-cover">
+              <source src={content.video_asset.filename} />
+            </video>
+          ) : (
+            <Image
+              className="object-cover"
+              src={img}
+              fill
+              alt={alt || "image"}
+            />
+          )}
         </div>
-      )
-}
+      );
+};
 
-export default Hero
+export default Hero;
