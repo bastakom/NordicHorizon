@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Hero = ({ img, alt, title, homeDesign, content }: Props) => {
-  
+
   return homeDesign
     ? null
     : img && (
@@ -21,7 +21,7 @@ const Hero = ({ img, alt, title, homeDesign, content }: Props) => {
               </h1>
             </div>
           )}
-          {content.video_asset && content.video_asset ? (
+          {content?.video_asset && content?.video_asset ? (
             <video autoPlay muted loop className="h-full w-full object-cover">
               <source src={content.video_asset.filename} />
             </video>
