@@ -24,7 +24,7 @@ const TileCards = ({
   cardLinkThree,
 }: Props) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-10 py-14 lg:py-32 px-10 bg-[#16364D] text-white">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-10 py-14 lg:py-20 px-10 bg-[#16364D] text-white">
       <div className="text-center flex flex-col gap-8 justify-tiles items-center">
         <h2 className="text-[24px] max-w-[70%]">{cardTitleOne}</h2>
         <p className="max-w-[60%]">{cardContentOne}</p>
