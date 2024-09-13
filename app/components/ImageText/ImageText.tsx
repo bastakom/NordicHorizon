@@ -32,7 +32,7 @@ const ImageText = ({ pageDesign, image, imageID, title, content }: Props) => {
           />
         </div>
 
-        <div className="grid gap-10 ml-5">
+        <div className="grid gap-10 ml-0 lg:ml-5">
           {pageDesign ? (
             <h2
               className={`${'text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]'}`}

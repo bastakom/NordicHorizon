@@ -1,7 +1,8 @@
 import './globals.scss'
 import './font.css'
-import Header from './components/Header/Header'
+const Header = dynamic(() => import('./components/Header/Header'))
 import Footer from './components/Footer/Footer'
+import dynamic from 'next/dynamic'
 
 export default function RootLayout({
   children,

@@ -37,7 +37,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       <div className="relative h-[60vh] w-full flex items-center justify-center">
         <div className="absolute h-full w-full flex items-center justify-center">
           {res?.story?.name && (
-            <h1 className="text-[70px] text-white text-center z-10">
+            <h1 className="text-[50px] lg:text-[70px] text-white text-center z-10">
               {res.story.name}
             </h1>
           )}
