@@ -36,18 +36,24 @@ const page = async ({ params }: { params: { slug: string } }) => {
     <div>
       <div className="relative h-[60vh] w-full flex items-center justify-center">
         <div className="absolute h-full w-full flex items-center justify-center">
-          {res?.story?.name && (
+          {res?.story?.name && !res.story.content.hero_video && (
             <h1 className="text-[50px] lg:text-[70px] text-white text-center z-10">
               {res.story.name}
             </h1>
           )}
         </div>
-        <Image
-          src={res?.story?.content?.hero_image.filename}
-          alt={res?.story?.name}
-          fill
-          className="object-cover"
-        />
+        {res.story.content.hero_video ? (
+          <video autoPlay muted loop className="h-full w-full object-cover">
+            <source src={res.story.content.hero_video.filename} />
+          </video>
+        ) : (
+          <Image
+            src={res?.story?.content?.hero_image.filename}
+            alt={res?.story?.name}
+            fill
+            className="object-cover"
+          />
+        )}
       </div>
       <div className="flex flex-col lg:flex-row gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] justify-center">
         {matchedPaket &&
