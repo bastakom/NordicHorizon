@@ -26,7 +26,7 @@ export default async function page({
   const config = await fetchConfig()
 
   const {
-    story: { content },
+    story: { content } = {},
   } = res
 
   const {
@@ -45,23 +45,25 @@ export default async function page({
     },
   } = config
 
-  return content.kontakt_pagedesign ? (
+  
+
+  return content?.kontakt_pagedesign ? (
     <div>
       <Team data={content} />
       <Form title={content.form_text} />
     </div>
   ) : (
     <div>
-      <Hero img={content.video.filename} content={content} />
+      <Hero img={content?.video.filename} content={content} pageDesign={content?.homedesign_pagedesign} />
       <ImageText
-        pageDesign={content.homedesign_pagedesign}
-        image={content.img_image.filename}
-        imageID={content.img_image.id}
-        content={content.content_image}
-        title={content.title_image}
+        pageDesign={content?.homedesign_pagedesign}
+        image={content?.img_image.filename}
+        imageID={content?.img_image.id}
+        content={content?.content_image}
+        title={content?.title_image}
       />
 
-      {content.homedesign_pagedesign ? null : (
+      {content?.homedesign_pagedesign ? null : (
         <TileCards
           cardTitleOne={title_1}
           cardContentOne={content_1}
@@ -74,7 +76,7 @@ export default async function page({
           cardLinkThree={link_3.cached_url}
         />
       )}
-      <Form title={content.form_text} />
+      <Form title={content?.form_text} />
     </div>
   )
 }

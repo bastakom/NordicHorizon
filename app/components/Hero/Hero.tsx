@@ -5,12 +5,13 @@ interface Props {
   img: any
   alt?: any
   title?: string
-  homeDesign?: any
+  pageDesign?: any
   content?: any
 }
 
-const Hero = ({ img, alt, title, homeDesign, content }: Props) => {
-  return homeDesign
+const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
+  console.log(pageDesign)
+  return pageDesign
     ? null
     : img && (
         <div

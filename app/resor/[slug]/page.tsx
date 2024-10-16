@@ -42,7 +42,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </h1>
           )}
         </div>
-        {res.story.content.hero_video ? (
+        {res.story.content?.hero_video ? (
           <video autoPlay muted loop className="h-full w-full object-cover">
             <source src={res.story.content.hero_video.filename} />
           </video>
