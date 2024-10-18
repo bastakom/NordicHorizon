@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
-  console.log(pageDesign)
   return pageDesign
     ? null
     : img && (

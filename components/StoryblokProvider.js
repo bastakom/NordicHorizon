@@ -1,8 +1,11 @@
 'use client'
 /** 1. Tag it as a client component */
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc'
+import HeroBlock from './Hero'
 
-const components = {}
+const components = {
+  page: HeroBlock
+}
 /** 2. Initialize it as usual */
 storyblokInit({
   accessToken: 'SHN4krlv8CPrDaEscXVWbQtt',

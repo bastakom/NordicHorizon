@@ -20,6 +20,7 @@ const Nav = ({ res, config }: Props) => {
     },
   } = config
 
+
   const handleSubOpen = () => {
     setIsOpen(true)
   }
