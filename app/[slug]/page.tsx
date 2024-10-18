@@ -21,15 +21,6 @@ async function fetchData(slug: string, locale: string) {
   return { data };
 }
 
-async function fetchPageData(slug: string) {
-  const data = await fetch(
-    `https:api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  );
-  if (!data) {
-    return null;
-  }
-  return data.json();
-}
 
 export default async function page({
   params,
@@ -38,11 +29,9 @@ export default async function page({
 }) {
   const pathname = params.slug;
   const slugName = pathname === undefined ? `hem` : pathname;
-  const res = await fetchPageData(slugName);
   const config = await fetchConfig();
   const { data } = await fetchData(slugName, params.lang);
 
-  const { story: { content } = {} } = res;
 
   
   return (
