@@ -22,7 +22,6 @@ const HeroBlock = ({ blok, config }) => {
     },
   } = config;
 
-  console.log(blok)
 
   return blok?.kontakt_pagedesign ? (
     <div>
