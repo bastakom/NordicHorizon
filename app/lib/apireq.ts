@@ -30,7 +30,7 @@ export async function fetchAllResor() {
 
 export async function fetchPaket(slug: string) {
   const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/resor/resepaket/${slug}?version=published&token=SHN4krlv8CPrDaEscXVWbQtt&cv=1726045046`
+    `https://api.storyblok.com/v2/cdn/stories/resor/resepaket/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
   )
   if (!data) {
     return null
