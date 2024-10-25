@@ -23,7 +23,7 @@ interface Props {
 }
 
 const Team = ({ data }: Props) => {
-
+//noimages is a boolean that will hide the images if true
   return (
     <div>
       <div className="h-[40vh] text-center w-full bg-[#16364D] flex justify-center items-center">
