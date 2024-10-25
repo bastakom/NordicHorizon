@@ -16,7 +16,7 @@ const Nav = ({ res, config }: Props) => {
   const [openMenu, setIsOpenMenu] = useState(false)
   const {
     story: {
-      content: { menu, logo, footer_logo, mail, phone, orgnmr },
+      content: { menu, logo, footer_logo, mail, phone, orgnmr, side_menu },
     },
   } = config
 
@@ -111,17 +111,22 @@ const Nav = ({ res, config }: Props) => {
               alt="Nordic Horizon Travel Group"
               className="mb-10"
             />
-            <Link onClick={handleOpenMenu} href="/om-oss">
-              Om oss
-            </Link>
-            <Link onClick={handleOpenMenu} href="/kontakt">
-              Kontakt
-            </Link>
+            {side_menu.map((item: any, index: number) => {
+              return (
+                <Link
+                  key={index}
+                  onClick={handleOpenMenu}
+                  href={`/${item.link.cached_url}`}
+                >
+                  {item.title}
+                </Link>
+              )
+            })}
             <div className="lg:flex flex-col mt-20 text-[16px] absolute bottom-10 m-auto text-center hidden">
               <Link href={`mailto:${mail}`}>{mail}</Link>
               <Link href={`phone:${phone}`}>{phone}</Link>
               <div>
-                Orgnmr: <span>{orgnmr}</span>
+                Orgnr: <span>{orgnmr}</span>
               </div>
             </div>
           </div>
@@ -132,3 +137,4 @@ const Nav = ({ res, config }: Props) => {
 }
 
 export default Nav
+
