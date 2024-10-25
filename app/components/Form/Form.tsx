@@ -82,6 +82,8 @@ const Form = ({ title }: any) => {
     }
   };
 
+  // Testing form
+
   return (
     <div className="py-20 flex flex-col w-full justify-center items-center">
       <span className="text-center mb-10 text-[29px]">{render(title)}</span>
