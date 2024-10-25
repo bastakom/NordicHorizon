@@ -1,6 +1,7 @@
 import Form from "@/app/components/Form/Form";
 import Hero from "@/app/components/Hero/Hero";
 import ImageText from "@/app/components/ImageText/ImageText";
+import Team from "@/app/components/Team/Team";
 import TileCards from "@/app/components/TileCards/TileCards";
 
 const HeroBlock = ({ blok, config }) => {
@@ -20,6 +21,7 @@ const HeroBlock = ({ blok, config }) => {
       },
     },
   } = config;
+
 
   return blok?.kontakt_pagedesign ? (
     <div>

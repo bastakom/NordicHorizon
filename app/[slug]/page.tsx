@@ -1,9 +1,5 @@
-import Form from "../components/Form/Form";
-import TileCards from "../components/TileCards/TileCards";
-import ImageText from "../components/ImageText/ImageText";
-import Hero from "../components/Hero/Hero";
 import { fetchConfig } from "../lib/apireq";
-import Team from "../components/Team/Team";
+
 
 import { StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 
