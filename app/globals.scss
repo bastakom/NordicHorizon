@@ -33,6 +33,12 @@ html {
   overflow-x: hidden;
 }
 
+.scrollwidth {
+  ::-webkit-scrollbar {
+    display: block;
+  }
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

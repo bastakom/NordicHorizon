@@ -44,13 +44,13 @@ const MobilNav = ({ res, config }: Props) => {
           openMenu ? 'translate-x-0' : 'translate-x-full'
         } w-full`}
       >
-        <div className="px-10 items-center flex flex-col gap-2 w-full mt-10 text-[20px] text-center">
+        <div className="px-10 items-center flex flex-col gap-2 w-full my-5 text-[20px] text-center scrollwidth">
           <Image
             src={footer_logo?.filename}
             width={200}
             height={99}
             alt="Nordic Horizon Travel Group"
-            className="mb-10"
+            className="mb-5"
           />
           <Link onClick={handleOpenMenu} href="/om-oss">
             Om oss
@@ -62,7 +62,7 @@ const MobilNav = ({ res, config }: Props) => {
             return item.sub_menu ? (
               <div
                 key={index}
-                className="relative"
+                className="relative overflow-auto"
                 onMouseEnter={handleSubOpen}
                 onMouseLeave={handleSubClose}
               >

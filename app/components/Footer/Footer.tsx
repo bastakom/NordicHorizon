@@ -10,7 +10,7 @@ const Footer = async () => {
   return (
     <div className="w-full p-10 mt-10 bg-[#16364D] justify-around text-white items-center flex flex-col lg:flex-row gap-5 lg:gap-0">
       <div className="text-center">
-        Orgnmr: <br />
+        Org.nr: <br />
         <span>{content.orgnmr}</span>
       </div>
       <div>

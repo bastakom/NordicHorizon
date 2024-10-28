@@ -33,6 +33,8 @@ const Nav = ({ res, config }: Props) => {
     setIsOpenMenu(!openMenu)
   }
 
+
+
   return (
     <>
       <div className="fixed w-full py-5 bg-[#16364D] block xl:hidden text-white z-50 top-0">
@@ -126,7 +128,7 @@ const Nav = ({ res, config }: Props) => {
               <Link href={`mailto:${mail}`}>{mail}</Link>
               <Link href={`phone:${phone}`}>{phone}</Link>
               <div>
-                Orgnr: <span>{orgnmr}</span>
+                Org.nr: <span>{orgnmr}</span>
               </div>
             </div>
           </div>
