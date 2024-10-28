@@ -5,7 +5,6 @@ import Team from "@/app/components/Team/Team";
 import TileCards from "@/app/components/TileCards/TileCards";
 
 const HeroBlock = ({ blok, config }) => {
-
   const {
     story: {
       content: {
@@ -22,11 +21,10 @@ const HeroBlock = ({ blok, config }) => {
     },
   } = config;
 
-
   return blok?.kontakt_pagedesign ? (
     <div>
       <Team data={blok} />
-      <Form title={blok.form_text} />
+      {!blok.no_form && <Form title={blok.form_text} />}
     </div>
   ) : (
     <div>
@@ -43,6 +41,7 @@ const HeroBlock = ({ blok, config }) => {
         blok={blok?.blok_image}
         title={blok?.title_image}
         content={blok?.content_image}
+        one_block_image_text={blok?.one_block_image_text}
       />
 
       {blok?.homedesign_pagedesign ? null : (
