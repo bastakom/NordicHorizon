@@ -43,7 +43,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           )}
         </div>
         {!res.story.content?.hero_video.id === false ? (
-          <video autoPlay muted loop className="h-full w-full object-cover">
+          <video autoPlay muted loop playsInline className="h-full w-full object-cover">
             <source src={res.story.content.hero_video.filename} />
           </video>
         ) : (
@@ -55,7 +55,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
       </div>
-      {matchedPaket < 0 && (
+      {matchedPaket.length > 0 && (
         <div className="flex flex-col lg:flex-row gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] justify-center">
           {matchedPaket &&
             Array.isArray(matchedPaket) &&

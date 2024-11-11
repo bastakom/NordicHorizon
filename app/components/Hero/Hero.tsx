@@ -34,10 +34,10 @@ const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
               </h1>
             </div>
           )}
-          {content?.video_asset && content?.video_asset ? (
-            <video autoPlay muted loop className="h-full w-full object-cover">
-              <source src={content.video_asset.filename} />
-            </video>
+            {content?.video_asset && content?.video_asset ? (
+              <video autoPlay muted loop playsInline className="h-full w-full object-cover">
+                <source src={content.video_asset.filename} />
+              </video>
           ) : (
             <Image
               className="object-cover"

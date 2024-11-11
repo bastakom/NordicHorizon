@@ -52,7 +52,7 @@ const MobilNav = ({ res, config }: Props) => {
             alt="Nordic Horizon Travel Group"
             className="mb-5"
           />
-          <Link onClick={handleOpenMenu} href="/om-oss">
+          <Link onClick={handleOpenMenu} href="/om-nordic-horizon-travel">
             Om oss
           </Link>
           <Link onClick={handleOpenMenu} href="/kontakt">
