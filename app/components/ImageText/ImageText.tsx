@@ -20,7 +20,7 @@ const ImageText = ({
 }: Props) => {
 
   return (
-    <div className={`${one_block_image_text && "mt-24 px-20 pb-10"} ${pageDesign ? "bg-[#E9EFED]" : "container m-auto"}`}>
+    <div className={`${one_block_image_text && "pb-10"} ${pageDesign ? "bg-[#E9EFED]" : "container m-auto"}`}>
       <div
         className={`${
           pageDesign

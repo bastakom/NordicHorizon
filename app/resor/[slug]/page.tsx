@@ -55,7 +55,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           />
         )}
       </div>
-      {matchedPaket && (
+      {matchedPaket < 0 && (
         <div className="flex flex-col lg:flex-row gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] justify-center">
           {matchedPaket &&
             Array.isArray(matchedPaket) &&

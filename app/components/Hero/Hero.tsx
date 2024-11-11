@@ -14,13 +14,13 @@ const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
     ? null
     : img && (
         <div
-          className={`relative h-[50vh] ${
+          className={`relative h-[80vh] lg:h-[70vh] ${
             content?.video_asset ? 'lg:h-[70vh]' : 'lg:h-[80vh]'
           } w-full flex items-center justify-center`}
         >
           {content?.video_asset && (
             <Image
-              className="absolute top-20 right-10"
+              className="absolute top-14 right-2 lg:top-20 lg:right-10"
               src={O}
               alt=""
               width={60}

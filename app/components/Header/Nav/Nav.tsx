@@ -1,39 +1,36 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
-import dynamic from 'next/dynamic'
-const MobilNav = dynamic(() => import('./MobilNav'))
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+const MobilNav = dynamic(() => import("./MobilNav"));
 
 interface Props {
-  config: any
-  res: any
+  config: any;
+  res: any;
 }
 
 const Nav = ({ res, config }: Props) => {
-  const [open, setIsOpen] = useState(false)
-  const [openMenu, setIsOpenMenu] = useState(false)
+  const [open, setIsOpen] = useState(false);
+  const [openMenu, setIsOpenMenu] = useState(false);
   const {
     story: {
       content: { menu, logo, footer_logo, mail, phone, orgnmr, side_menu },
     },
-  } = config
-
+  } = config;
 
   const handleSubOpen = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const handleSubClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const handleOpenMenu = () => {
-    setIsOpenMenu(!openMenu)
-  }
-
-
+    setIsOpenMenu(!openMenu);
+  };
 
   return (
     <>
@@ -81,7 +78,7 @@ const Nav = ({ res, config }: Props) => {
                           >
                             {el.name}
                           </Link>
-                        )
+                        );
                       })}
                     </div>
                   )}
@@ -90,10 +87,10 @@ const Nav = ({ res, config }: Props) => {
                 <Link href={`/${item.link.cached_url}`} key={item._uid}>
                   {item.title}
                 </Link>
-              )
+              );
             })}
             <div
-              className={`menu-btn-6 mt-4 z-20 ${openMenu ? 'active' : ''}`}
+              className={`menu-btn-6 mt-4 z-20 ${openMenu ? "active" : ""}`}
               onClick={handleOpenMenu}
             >
               <span />
@@ -102,7 +99,7 @@ const Nav = ({ res, config }: Props) => {
         </div>
         <div
           className={`fixed top-0 right-0 h-full bg-[#16364D] transition-transform duration-300 justify-center flex ease-in-out ${
-            openMenu ? 'translate-x-0' : 'translate-x-full'
+            openMenu ? "translate-x-0" : "translate-x-full"
           } w-80`}
         >
           <div className="px-10 items-center flex flex-col gap-2 w-full mt-20 text-[20px] text-center">
@@ -116,13 +113,14 @@ const Nav = ({ res, config }: Props) => {
             {side_menu.map((item: any, index: number) => {
               return (
                 <Link
+                  className="text-[16px] underline underline-offset-2"
                   key={index}
                   onClick={handleOpenMenu}
                   href={`/${item.link.cached_url}`}
                 >
                   {item.title}
                 </Link>
-              )
+              );
             })}
             <div className="lg:flex flex-col mt-20 text-[16px] absolute bottom-10 m-auto text-center hidden">
               <Link href={`mailto:${mail}`}>{mail}</Link>
@@ -135,8 +133,7 @@ const Nav = ({ res, config }: Props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Nav
-
+export default Nav;
