@@ -14,7 +14,7 @@ const MobilNav = ({ res, config }: Props) => {
   const [openMenu, setIsOpenMenu] = useState(false)
   const {
     story: {
-      content: { menu, footer_logo },
+      content: { menu, footer_logo, side_menu },
     },
   } = config
 
@@ -52,12 +52,18 @@ const MobilNav = ({ res, config }: Props) => {
             alt="Nordic Horizon Travel Group"
             className="mb-5"
           />
-          <Link onClick={handleOpenMenu} href="/om-nordic-horizon-travel">
-            Om oss
-          </Link>
-          <Link onClick={handleOpenMenu} href="/kontakt">
-            Kontakt
-          </Link>
+        {side_menu.map((item: any, index: number) => {
+              return (
+                <Link
+                  className="text-[20px]"
+                  key={index}
+                  onClick={handleOpenMenu}
+                  href={`/${item.link.cached_url}`}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
           {menu.map((item: any, index: number) => {
             return item.sub_menu ? (
               <div
