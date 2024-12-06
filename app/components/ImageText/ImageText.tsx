@@ -68,8 +68,8 @@ const ImageText = ({
             </h3>
           )}
           <span
-            className={`text-[17px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light ${
-              one_block_image_text && "mx-auto flex flex-col gap-5 "
+            className={`text-[17px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light oneheroblock ${
+              one_block_image_text && "mx-auto flex flex-col gap-5"
             }`}
           >
             {render(content)}
