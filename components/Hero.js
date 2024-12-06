@@ -2,6 +2,7 @@ import Form from "@/app/components/Form/Form";
 import Hero from "@/app/components/Hero/Hero";
 import ImageText from "@/app/components/ImageText/ImageText";
 import Team from "@/app/components/Team/Team";
+import { TeamInfo } from "@/app/components/Team/TeamInfo";
 import TileCards from "@/app/components/TileCards/TileCards";
 
 const HeroBlock = ({ blok, config }) => {
@@ -24,7 +25,9 @@ const HeroBlock = ({ blok, config }) => {
   return blok?.kontakt_pagedesign ? (
     <div>
       <Team data={blok} />
+      {!blok.one_block_image_text && <TeamInfo data={blok} />}
       {!blok.no_form && <Form title={blok.form_text} />}
+      
     </div>
   ) : (
     <div>
