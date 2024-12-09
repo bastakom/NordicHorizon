@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import StoryblokProvider from "@/components/StoryblokProvider";
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 storyblokInit({
   accessToken: process.env.STORYBLOCK_API_TOKEN,
@@ -43,6 +44,15 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <Script src="https://consent.cookiebot.com/uc.js" />
+          <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="d77505aa-9cc7-41af-a436-ed5e0458fb79"
+            data-blockingmode="manual"
+            type="text/javascript"
+            async
+          ></script>
         </body>
       </html>
     </StoryblokProvider>
