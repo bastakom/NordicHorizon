@@ -131,8 +131,7 @@ const Nav = ({ res, config }: Props) => {
               </div>
 
               <Link href={"/cookies"} onClick={handleOpenMenu}>
-                {" "}
-                Cookies{" "}
+                Cookies
               </Link>
             </div>
           </div>
