@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import CookieConsent from "@/app/components/CookieConsent";
 const MobilNav = dynamic(() => import("./MobilNav"));
 
 interface Props {
@@ -128,6 +129,10 @@ const Nav = ({ res, config }: Props) => {
               <div>
                 Org.nr: <span>{orgnmr}</span>
               </div>
+
+              <Link href={"/cookies"} onClick={handleOpenMenu}>
+                Cookies
+              </Link>
             </div>
           </div>
         </div>
