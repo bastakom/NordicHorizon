@@ -1,4 +1,4 @@
-import { fetchConfig } from "@/app/[slug]/page";
+import { fetchConfig } from "@/app/lib/apireq";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";

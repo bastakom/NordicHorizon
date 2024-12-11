@@ -1,13 +1,19 @@
-/* export async function fetchConfig() {
-  const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/generalsettings?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  )
-  if (!data) {
-    return null
-  }
-  return data.json()
+import {getStoryblokApi } from "@storyblok/react/rsc";
+export async function fetchConfig() {
+  let sbParams = {
+    version: "draft" as const,
+  };
+
+  const storyblokApi = getStoryblokApi();
+  const data = await storyblokApi.get(`cdn/stories/generalsettings`, sbParams, {
+    cache: "no-store",
+  });
+
+  const config = { story: data.data.story };
+
+  return config;
 }
- */
+
 export async function fetchResor(slug: string) {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories/resor/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`

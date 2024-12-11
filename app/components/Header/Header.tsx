@@ -1,6 +1,5 @@
-import { fetchAllResor } from "@/app/lib/apireq";
+import { fetchAllResor, fetchConfig } from "@/app/lib/apireq";
 import Nav from "./Nav/Nav";
-import { fetchConfig } from "@/app/[slug]/page";
 
 const Header = async () => {
   const config = await fetchConfig();
