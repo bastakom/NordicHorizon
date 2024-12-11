@@ -12,7 +12,7 @@ const CookieConsent = () => {
       script.type = "text/javascript";
       script.async = true;
       script.src =
-        "https://consent.cookiebot.com/49855138-eae1-4f45-af19-aa3cde671bfdcd.js";
+        "https://consent.cookiebot.com/d77505aa-9cc7-41af-a436-ed5e0458fb79.js";
 
       cookieBotWrapper.appendChild(script);
     }
