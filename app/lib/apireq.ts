@@ -1,4 +1,4 @@
-export async function fetchConfig() {
+/* export async function fetchConfig() {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories/generalsettings?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
   )
@@ -7,7 +7,7 @@ export async function fetchConfig() {
   }
   return data.json()
 }
-
+ */
 export async function fetchResor(slug: string) {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories/resor/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`

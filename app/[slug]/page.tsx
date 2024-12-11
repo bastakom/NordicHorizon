@@ -1,6 +1,3 @@
-import { fetchConfig } from "../lib/apireq";
-
-
 import { StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 
 async function fetchData(slug: string, locale: string) {
@@ -16,7 +13,20 @@ async function fetchData(slug: string, locale: string) {
 
   return { data };
 }
+export async function fetchConfig() {
+  let sbParams = {
+    version: "draft" as const,
+  };
 
+  const storyblokApi = getStoryblokApi();
+  const data = await storyblokApi.get(`cdn/stories/generalsettings`, sbParams, {
+    cache: "no-store",
+  });
+
+  const config = { story: data.data.story };
+
+  return config;
+}
 
 export default async function page({
   params,
@@ -25,11 +35,9 @@ export default async function page({
 }) {
   const pathname = params.slug;
   const slugName = pathname === undefined ? `hem` : pathname;
-  const config = await fetchConfig();
   const { data } = await fetchData(slugName, params.lang);
+  const config = await fetchConfig();
 
-
-  
   return (
     <div>
       <StoryblokStory story={data?.data.story} config={config} />
