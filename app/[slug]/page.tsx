@@ -1,4 +1,5 @@
 import { StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
+import { fetchConfig } from "../lib/apireq";
 
 async function fetchData(slug: string, locale: string) {
   let sbParams = {
@@ -12,20 +13,6 @@ async function fetchData(slug: string, locale: string) {
   });
 
   return { data };
-}
-export async function fetchConfig() {
-  let sbParams = {
-    version: "draft" as const,
-  };
-
-  const storyblokApi = getStoryblokApi();
-  const data = await storyblokApi.get(`cdn/stories/generalsettings`, sbParams, {
-    cache: "no-store",
-  });
-
-  const config = { story: data.data.story };
-
-  return config;
 }
 
 export default async function page({
