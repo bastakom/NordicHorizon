@@ -56,7 +56,7 @@ const HeroBlock = ({ blok, config }) => {
           cardTitleThree={title_3}
           cardContentThree={content_3}
           cardLinkOne={link_1.cached_url}
-          cardLinkTwo={link_2.cached_url}
+          cardLinkTwo={link_2?.cached_url}
           cardLinkThree={link_3.cached_url}
         />
       )}

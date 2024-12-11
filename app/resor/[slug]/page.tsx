@@ -32,8 +32,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
     res?.story?.content?.paket?.includes(item.uuid)
   );
 
-  console.log(res.story.content.hero_image.filename);
-
   return (
     <div>
       <div className="relative h-[60vh] w-full flex items-center justify-center">
@@ -68,7 +66,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
           {matchedPaket &&
             Array.isArray(matchedPaket) &&
             matchedPaket.map((item: any) => {
-
               return (
                 <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
                   <Image

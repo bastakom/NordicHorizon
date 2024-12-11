@@ -23,7 +23,6 @@ interface Props {
 }
 
 const Team = ({ data }: Props) => {
-  console.log(data.img_1.filename)
   return (
     <div>
       <div className="h-[40vh] text-center w-full bg-[#16364D] flex justify-center items-center">
@@ -51,7 +50,7 @@ const Team = ({ data }: Props) => {
           </div>
         </div>
         <div className="flex justify-center flex-col text-center gap-5">
-        {!data.noimages && (
+          {!data.noimages && (
             <div className="relative h-[400px] w-[320px] m-auto -mt-0 lg:-mt-48">
               <Image
                 src={data.img_2.filename}
@@ -71,7 +70,7 @@ const Team = ({ data }: Props) => {
           </div>
         </div>
         <div className="flex justify-center flex-col text-center gap-5">
-        {!data.noimages && (
+          {!data.noimages && (
             <div className="relative h-[400px] w-[320px] m-auto -mt-0 lg:-mt-48">
               <Image
                 src={data.img_3.filename}
