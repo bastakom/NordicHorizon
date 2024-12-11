@@ -6,7 +6,6 @@ import { TeamInfo } from "@/app/components/Team/TeamInfo";
 import TileCards from "@/app/components/TileCards/TileCards";
 
 const HeroBlock = ({ blok, config }) => {
-  console.log(blok)
   const {
     story: {
       content: {
