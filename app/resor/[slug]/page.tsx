@@ -1,7 +1,6 @@
-import { fetchConfig } from "@/app/[slug]/page";
 import Form from "@/app/components/Form/Form";
 import TileCards from "@/app/components/TileCards/TileCards";
-import { fetchAllPaket, fetchResor } from "@/app/lib/apireq";
+import { fetchAllPaket, fetchConfig, fetchResor } from "@/app/lib/apireq";
 import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
