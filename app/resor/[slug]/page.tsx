@@ -10,6 +10,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
+  console.log("TEEEST", res.story.content.hero_video_mobile);
 
   const {
     story: {
@@ -42,13 +43,13 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </h1>
           )}
         </div>
-        {!res.story.content?.hero_video.id === false ? (
+        {/* {!res.story.content?.hero_video.id === false ? (
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="h-full w-full object-cover"
+            className=" h-full w-full object-cover"
           >
             <source src={res.story.content.hero_video.filename} />
           </video>
@@ -59,7 +60,40 @@ const page = async ({ params }: { params: { slug: string } }) => {
             fill
             className="object-cover"
           />
+        )} */}
+
+        {res.story.content?.hero_video?.id && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="hidden lg:block h-full w-full object-cover"
+          >
+            <source src={res.story.content.hero_video.filename} />
+          </video>
         )}
+        {res.story.content?.hero_video_mobile?.filename && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="block lg:hidden h-full w-full object-cover"
+          >
+            <source src={res.story.content.hero_video_mobile.filename} />
+          </video>
+        )}
+
+        {!res.story.content?.hero_video?.id &&
+          !res.story.content?.hero_video_mobile?.filename && (
+            <Image
+              src={res?.story?.content?.hero_image?.filename || "/fallback.jpg"}
+              alt={res?.story?.name || "Hero Image"}
+              fill
+              className="object-cover"
+            />
+          )}
       </div>
       {matchedPaket.length > 0 && (
         <div className="flex flex-col lg:flex-row gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] justify-center">

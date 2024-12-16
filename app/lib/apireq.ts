@@ -1,4 +1,19 @@
 import {getStoryblokApi } from "@storyblok/react/rsc";
+
+export async function fetchData(slug: string, locale: string) {
+  let sbParams = {
+    version: "draft" as const,
+    language: locale,
+  };
+
+  const storyblokApi = getStoryblokApi();
+  const data = await storyblokApi.get(`cdn/stories/${slug}`, sbParams, {
+    cache: "no-store",
+  });
+
+  return { data };
+} 
+
 export async function fetchConfig() {
   let sbParams = {
     version: "draft" as const,

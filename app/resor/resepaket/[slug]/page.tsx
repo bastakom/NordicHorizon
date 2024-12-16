@@ -1,13 +1,14 @@
-import Form from '@/app/components/Form/Form'
-import Gallery from '@/app/components/Gallery/Gallery'
-import Hero from '@/app/components/Hero/Hero'
-import ImageText from '@/app/components/ImageText/ImageText'
-import Include from '@/app/components/Include/Include'
-import { fetchPaket } from '@/app/lib/apireq'
+import Form from "@/app/components/Form/Form";
+import Gallery from "@/app/components/Gallery/Gallery";
+import Hero from "@/app/components/Hero/Hero";
+import ImageText from "@/app/components/ImageText/ImageText";
+import Include from "@/app/components/Include/Include";
+import { fetchPaket } from "@/app/lib/apireq";
 
 const page = async ({ params }: { params: { slug: string } }) => {
-  const res = await fetchPaket(params.slug)
-  const { story } = res
+  const res = await fetchPaket(params.slug);
+  const { story } = res;
+  console.log("story", story);
 
   return (
     <div>
@@ -15,6 +16,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         img={story.content?.image.filename}
         alt={story?.name}
         title={story.name}
+        content={story.content}
       />
       <ImageText
         pageDesign={false}
@@ -33,7 +35,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
       <Form title={story.content.title} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
