@@ -25,8 +25,6 @@ export default async function page({
   const { data } = await fetchData(slugName, params.lang);
   const config = await fetchConfig();
 
-  console.log("data", data);
-
   return (
     <div>
       <StoryblokStory story={data?.data.story} config={config} />

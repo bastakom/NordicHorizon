@@ -10,7 +10,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
-  console.log("TEEEST", res.story.content.hero_video_mobile);
 
   const {
     story: {

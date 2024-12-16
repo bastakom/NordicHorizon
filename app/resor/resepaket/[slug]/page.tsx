@@ -8,7 +8,6 @@ import { fetchPaket } from "@/app/lib/apireq";
 const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchPaket(params.slug);
   const { story } = res;
-  console.log("story", story);
 
   return (
     <div>
