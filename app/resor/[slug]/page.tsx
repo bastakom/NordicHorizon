@@ -10,7 +10,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
-
+  //console.log("reeees", res.story.content);
   const {
     story: {
       content: {
