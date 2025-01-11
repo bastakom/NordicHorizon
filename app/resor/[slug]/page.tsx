@@ -60,7 +60,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           />
         )} */}
 
-        {res.story.content?.hero_video?.id && (
+        {res.story.content?.hero_video && (
           <video
             autoPlay
             muted
