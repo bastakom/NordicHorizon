@@ -25,7 +25,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         title={story.content.image_title}
       />
 
-      <Include include={story.content.included} />
+      <Include include={story?.content?.included} />
       {story.content.gallery.length > 0 && (
         <Gallery data={story.content.gallery} />
       )}
