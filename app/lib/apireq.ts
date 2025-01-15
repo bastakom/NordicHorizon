@@ -38,7 +38,12 @@ export async function fetchSitemap() {
     cache: "no-store",
   });
 
-  const data = { story: res.data.story };
+  const data = res.data.stories.map((story: any) => {
+    return {
+      id: story.id,
+      slug: story.slug,
+    };
+  });
 
   return data;
 }
