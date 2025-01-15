@@ -1,4 +1,4 @@
-import {getStoryblokApi } from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@storyblok/react/rsc";
 
 export async function fetchData(slug: string, locale: string) {
   let sbParams = {
@@ -12,7 +12,7 @@ export async function fetchData(slug: string, locale: string) {
   });
 
   return { data };
-} 
+}
 
 export async function fetchConfig() {
   let sbParams = {
@@ -28,43 +28,57 @@ export async function fetchConfig() {
 
   return config;
 }
+export async function fetchSitemap() {
+  let sbParams = {
+    version: "draft" as const,
+  };
+
+  const storyblokApi = getStoryblokApi();
+  const res = await storyblokApi.get(`cdn/stories/`, sbParams, {
+    cache: "no-store",
+  });
+
+  const data = { story: res.data.story };
+
+  return data;
+}
 
 export async function fetchResor(slug: string) {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories/resor/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  )
+  );
   if (!data) {
-    return null
+    return null;
   }
-  return data.json()
+  return data.json();
 }
 
 export async function fetchAllResor() {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories?cv=1725970996&starts_with=resor/&excluding_slugs=resor/resepaket/*&token=${process.env.STORYBLOCK_API_TOKEN}&version=published`
-  )
+  );
   if (!data) {
-    return null
+    return null;
   }
-  return data.json()
+  return data.json();
 }
 
 export async function fetchPaket(slug: string) {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories/resor/resepaket/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  )
+  );
   if (!data) {
-    return null
+    return null;
   }
-  return data.json()
+  return data.json();
 }
 
 export async function fetchAllPaket() {
   const data = await fetch(
     `https://api.storyblok.com/v2/cdn/stories?cv=1725970996&starts_with=resor/resepaket&token=${process.env.STORYBLOCK_API_TOKEN}&version=published`
-  )
+  );
   if (!data) {
-    return null
+    return null;
   }
-  return data.json()
+  return data.json();
 }
