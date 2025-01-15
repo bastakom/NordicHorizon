@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nhtravel.se/
+
+# Sitemaps
+Sitemap: https://www.nhtravel.se/sitemap.xml
