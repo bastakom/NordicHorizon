@@ -4,11 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Norms';
-  src: url('../public/fonts/TT-Norms-Pro-Regular.ttf') format('truetype');
-  font-weight: 500;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 h2 {
   letter-spacing: 2.08px;
@@ -25,7 +21,7 @@ span,
 textarea,
 input,
 p {
-  font-family: 'Norms', sans-serif;
+  font-family: "Montserrat", serif;
 }
 
 html {
