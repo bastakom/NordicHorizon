@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 import dynamic from "next/dynamic";
 import StoryblokProvider from "@/components/StoryblokProvider";
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 
 storyblokInit({
@@ -38,7 +37,7 @@ export default function RootLayout({
               gtag('config', 'G-98B6G3X5TN');
             `,
             }}
-          />{" "}
+          />
         </head>
         <body>
           <Header />
