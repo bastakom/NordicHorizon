@@ -1,11 +1,11 @@
-@import 'slick-carousel/slick/slick.css';
-@import 'slick-carousel/slick/slick-theme.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 h2 {
   letter-spacing: 2.08px;
@@ -51,7 +51,7 @@ html {
   min-width: 117px;
 }
 
-.CookieDeclaration{
+.CookieDeclaration {
   padding: 0 1rem 1rem 1rem;
 }
 .justify-tiles {
@@ -89,7 +89,7 @@ html {
 .menu-btn-6 span::before,
 .menu-btn-6 span::after {
   background: white;
-  content: '';
+  content: "";
   position: absolute;
   width: 40px;
   height: 3px;
@@ -161,12 +161,9 @@ html {
   transition-delay: 0.5s;
 }
 
-
-
 .oneheroblock {
   li {
     list-style-type: circle;
-
   }
 
   b {
