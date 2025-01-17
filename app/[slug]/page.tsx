@@ -11,7 +11,6 @@ export default async function page({
   const slugName = pathname === undefined ? `hem` : pathname;
 
   const db = await fetchSitemap();
-  console.log(db.map((item: any) => item.slug));
   try {
     const { data } = await fetchData(slugName, params.lang);
     const config = await fetchConfig();
