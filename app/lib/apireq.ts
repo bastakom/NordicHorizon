@@ -69,14 +69,8 @@ export async function fetchResor(slug: string) {
     console.error("Error fetching resor:", error);
     return null;  
   }
-=======
-  const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/resor/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  );
-  if (!data) {
-    return null;
-  }
-  return data.json();
+
+  
 }
 
 
