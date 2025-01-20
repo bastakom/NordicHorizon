@@ -7,9 +7,15 @@ const nextConfig = {
         hostname: "a.storyblok.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", 
+        port: "",
+      },
     ],
   },
   reactStrictMode: true,
 };
 
 module.exports = nextConfig;
+

@@ -10,7 +10,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
-
   const {
     story: {
       content: {
@@ -61,7 +60,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           />
         )} */}
 
-        {res.story.content?.hero_video?.id && (
+        {res.story.content?.hero_video && (
           <video
             autoPlay
             muted
