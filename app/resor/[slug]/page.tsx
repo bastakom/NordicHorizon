@@ -94,29 +94,31 @@ const page = async ({ params }: { params: { slug: string } }) => {
           )}
       </div>
       {matchedPaket.length > 0 && (
-        <div className="flex flex-col lg:flex-row gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] justify-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] lg:h-100vh justify-center">
           {matchedPaket &&
             Array.isArray(matchedPaket) &&
             matchedPaket.map((item: any) => {
               return (
                 <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
-                  <Image
-                    src={
-                      item.content.image.filename ||
-                      "https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
-                    }
-                    height={150}
-                    width={300}
-                    className="w-full"
-                    alt={item.name}
-                  />
+                  <div className="lg:w-[403px] lg:h-[268px]">
+                    <Image
+                      src={
+                        item.content.image.filename ||
+                        "https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
+                      }
+                      height={150}
+                      width={300}
+                      className="w-full h-full"
+                      alt={item.name}
+                    />
+                  </div>
                   <span className="font-light">
                     <h3 className="text-[30px]">{item.name}</h3>
                     <h2 className="text-[14px]">{item.content.category}</h2>
                   </span>
                   <span>{render(item.content.meta)}</span>
                   <Link
-                    className="button flex justify-center max-w-[150px]"
+                    className="button flex justify-center max-w-[155px]"
                     href={`/${item.full_slug}`}
                   >
                     Läs mer
