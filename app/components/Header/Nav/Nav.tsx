@@ -70,7 +70,9 @@ const Nav = ({ res, config }: Props) => {
                   <button>Resor</button>
 
                   <div
-                    className={`absolute p-5 -ml-2 text-white bg-[#16364D] flex flex-col shadow-lg z-50 ${open ? "opacity-100" : "opacity-0"} transition-all duration-300`}
+                    className={`absolute p-5 -ml-2 text-white bg-[#16364D]  flex-col shadow-lg z-50 ${
+                      open ? "opacity-100 flex" : "opacity-0 hidden"
+                    } transition-all duration-300`}
                   >
                     {res.stories.map((el: any, index: number) => {
                       return (
