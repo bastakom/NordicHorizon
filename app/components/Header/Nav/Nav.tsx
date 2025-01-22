@@ -68,21 +68,22 @@ const Nav = ({ res, config }: Props) => {
                   onMouseLeave={handleSubClose}
                 >
                   <button>Resor</button>
-                  {open && (
-                    <div className="absolute p-5 -ml-6 text-white bg-[#16364D] flex flex-col shadow-lg z-50">
-                      {res.stories.map((el: any, index: number) => {
-                        return (
-                          <Link
-                            key={index}
-                            href={`/${el.full_slug}`}
-                            className="p-2"
-                          >
-                            {el.name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
+
+                  <div
+                    className={`absolute p-5 -ml-2 text-white bg-[#16364D] flex flex-col shadow-lg z-50 ${open ? "opacity-100" : "opacity-0"} transition-all duration-300`}
+                  >
+                    {res.stories.map((el: any, index: number) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={`/${el.full_slug}`}
+                          className="p-2 min-w-[250px] hover:opacity-50 transition-all"
+                        >
+                          {el.name}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               ) : (
                 <Link href={`/${item.link.cached_url}`} key={item._uid}>
