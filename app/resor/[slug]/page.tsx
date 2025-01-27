@@ -27,7 +27,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     },
   } = config;
 
-  const matchedPaket = paket?.stories.filter((item: { uuid: string }) =>
+  const matchedPaket = paket?.filter((item: { uuid: string }) =>
     res?.story?.content?.paket?.includes(item.uuid)
   );
 

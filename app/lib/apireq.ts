@@ -1,4 +1,5 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
+import { redirect } from "next/navigation";
 
 export async function fetchData(slug: string, locale: string) {
   let sbParams = {
@@ -49,57 +50,98 @@ export async function fetchSitemap() {
 }
 
 export async function fetchResor(slug: string) {
-
   const storyblokApi = getStoryblokApi();
 
   try {
-    
     const data = await storyblokApi.get(`cdn/stories/resor/${slug}`, {
-      version: "draft" as const, 
-      token: process.env.STORYBLOCK_API_TOKEN,  
+      version: "draft" as const,
+      token: process.env.STORYBLOCK_API_TOKEN,
     });
 
- 
     if (!data || !data.data || !data.data) {
-      return null; 
+      return null;
     }
-    return data.data; 
-
+    return data.data;
   } catch (error) {
     console.error("Error fetching resor:", error);
-    return null;  
-  }
-
-  
-}
-
-
-export async function fetchAllResor() {
-  const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1725970996&starts_with=resor/&excluding_slugs=resor/resepaket/*&token=${process.env.STORYBLOCK_API_TOKEN}&version=published`
-  );
-  if (!data) {
     return null;
   }
-  return data.json();
+}
+
+export async function fetchAllResor() {
+  let sbParams = {
+    version: "draft" as const,
+    token: process.env.STORYBLOCK_API_TOKEN,
+    starts_with: "resor/",
+    excluding_slugs: "resor/resepaket/*",
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
+  }
 }
 
 export async function fetchPaket(slug: string) {
-  const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories/resor/resepaket/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`
-  );
-  if (!data) {
-    return null;
+  let sbParams = {
+    version: "draft" as const,
+    token: process.env.STORYBLOCK_API_TOKEN,
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(
+      `cdn/stories/resor/resepaket/${slug}`,
+      sbParams
+    );
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
   }
-  return data.json();
 }
 
 export async function fetchAllPaket() {
-  const data = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?cv=1725970996&starts_with=resor/resepaket&token=${process.env.STORYBLOCK_API_TOKEN}&version=published`
-  );
-  if (!data) {
-    return null;
+  let sbParams = {
+    version: "draft" as const,
+    token: process.env.STORYBLOCK_API_TOKEN,
+    starts_with: "resor/resepaket",
+  };
+
+  const client = getStoryblokApi();
+  try {
+    const data = await client.get(`cdn/stories/`, sbParams);
+
+    if (!data) {
+      throw new Error("Not Found");
+    }
+
+    return data.data.stories;
+  } catch (error: any) {
+    if (error.response && error.response.status === 500) {
+      redirect("/500");
+    } else {
+      throw error;
+    }
   }
-  return data.json();
 }
