@@ -70,7 +70,7 @@ export async function fetchResor(slug: string) {
 
 export async function fetchAllResor() {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
     token: process.env.STORYBLOCK_API_TOKEN,
     starts_with: "resor/",
     excluding_slugs: "resor/resepaket/*",
