@@ -15,6 +15,19 @@ export async function fetchData(slug: string, locale: string) {
   return { data };
 }
 
+export async function getMeta(slug: string) {
+  let sbParams = {
+    version: "draft" as const,
+  };
+
+  const storyblokApi = getStoryblokApi();
+  const data = await storyblokApi.get(`cdn/stories/${slug}`, sbParams, {
+    cache: "no-store",
+  });
+
+  return { data };
+}
+
 export async function fetchConfig() {
   let sbParams = {
     version: "draft" as const,
