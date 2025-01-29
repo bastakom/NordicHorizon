@@ -1,6 +1,7 @@
 import { StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 import { fetchConfig, fetchData, fetchSitemap } from "../lib/apireq";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 export default async function page({
   params,
@@ -28,3 +29,26 @@ export default async function page({
     notFound();
   }
 }
+
+const getMeta = async (slug: string) => {
+  const res = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories/${slug}?version=published&token=${process.env.STORYBLOCK_API_TOKEN}`,
+    { cache: "no-store" }
+  );
+  return res.json();
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const slugName = !pathname || pathname === "" ? "home" : pathname;
+  const data = await getMeta(slugName);
+
+  return {
+    title: data?.story.content?.SEO.title || "Nordic Horizon Travelgroup",
+    description: data?.story.content?.SEO.description || "Default description",
+  };
+};
