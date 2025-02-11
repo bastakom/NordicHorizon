@@ -100,15 +100,14 @@ const page = async ({ params }: { params: { slug: string } }) => {
             matchedPaket.map((item: any) => {
               return (
                 <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
-                  <div className="lg:w-[403px] lg:h-[268px]">
+                  <div className="w-full lg:h-[268px] relative">
                     <Image
                       src={
                         item.content.image.filename ||
                         "https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
                       }
-                      height={150}
-                      width={300}
-                      className="w-full h-full"
+                      fill
+                      className="object-cover"
                       alt={item.name}
                     />
                   </div>
