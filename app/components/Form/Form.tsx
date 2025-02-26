@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Form = ({ title }: any) => {
+const Form = ({ title, resend }: any) => {
   const [sent, setSent] = useState(false);
   const [status, setStatus] = useState("");
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const Form = ({ title }: any) => {
     email: "",
     phone: "",
     message: "",
+    resend_title: resend,
   });
 
   const handleChange = (e: any) => {
@@ -31,6 +32,13 @@ const Form = ({ title }: any) => {
 
       if (response.ok) {
         setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          resend_title: resend,
+        });
         setSent(true);
       } else {
         setStatus("error");
@@ -41,7 +49,6 @@ const Form = ({ title }: any) => {
       setStatus("error");
     }
   };
-
 
   return (
     <div className="py-20 flex flex-col w-full justify-center items-center">
@@ -78,7 +85,9 @@ const Form = ({ title }: any) => {
           value={formData.message}
           onChange={handleChange}
         />
-        <button className="button max-w-[200px]" type="submit">Skicka</button>
+        <button className="button max-w-[200px]" type="submit">
+          Skicka
+        </button>
       </form>
     </div>
   );

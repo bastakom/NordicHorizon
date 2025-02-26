@@ -10,6 +10,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
+
   const {
     story: {
       content: {
@@ -23,6 +24,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         link_1,
         link_2,
         link_3,
+        resend_title,
       },
     },
   } = config;
@@ -138,7 +140,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         cardLinkTwo={link_2.cached_url}
         cardLinkThree={link_3.cached_url}
       />
-      <Form title={form_title} />
+      <Form title={form_title} resend={resend_title} />
     </div>
   );
 };

@@ -27,7 +27,6 @@ const HeroBlock = ({ blok, config }) => {
       <Team data={blok} />
       {!blok.one_block_image_text && <TeamInfo data={blok} />}
       {!blok.no_form && <Form title={blok.form_text} />}
-      
     </div>
   ) : (
     <div>
@@ -60,7 +59,7 @@ const HeroBlock = ({ blok, config }) => {
           cardLinkThree={link_3.cached_url}
         />
       )}
-      <Form title={blok?.form_text} />
+      <Form title={blok?.form_text} resend={blok?.resend_title} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 export async function fetchData(slug: string, locale: string) {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
     language: locale,
   };
 
@@ -17,7 +17,7 @@ export async function fetchData(slug: string, locale: string) {
 
 export async function getMeta(slug: string) {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
   };
 
   const storyblokApi = getStoryblokApi();
@@ -30,7 +30,7 @@ export async function getMeta(slug: string) {
 
 export async function fetchConfig() {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
   };
 
   const storyblokApi = getStoryblokApi();
@@ -44,7 +44,7 @@ export async function fetchConfig() {
 }
 export async function fetchSitemap() {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
   };
 
   const storyblokApi = getStoryblokApi();
@@ -67,7 +67,7 @@ export async function fetchResor(slug: string) {
 
   try {
     const data = await storyblokApi.get(`cdn/stories/resor/${slug}`, {
-      version: "draft" as const,
+      version: "published" as const,
       token: process.env.STORYBLOCK_API_TOKEN,
     });
 
@@ -109,7 +109,7 @@ export async function fetchAllResor() {
 
 export async function fetchPaket(slug: string) {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
     token: process.env.STORYBLOCK_API_TOKEN,
   };
 
@@ -136,7 +136,7 @@ export async function fetchPaket(slug: string) {
 
 export async function fetchAllPaket() {
   let sbParams = {
-    version: "draft" as const,
+    version: "published" as const,
     token: process.env.STORYBLOCK_API_TOKEN,
     starts_with: "resor/resepaket",
   };
