@@ -81,6 +81,25 @@ export async function fetchResor(slug: string) {
   }
 }
 
+export async function fetchSport(slug: string) {
+  const storyblokApi = getStoryblokApi();
+
+  try {
+    const data = await storyblokApi.get(`cdn/stories/sport/${slug}`, {
+      version: "published" as const,
+      token: process.env.STORYBLOCK_API_TOKEN,
+    });
+
+    if (!data || !data.data || !data.data) {
+      return null;
+    }
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching resor:", error);
+    return null;
+  }
+}
+
 export async function fetchAllResor() {
   let sbParams = {
     version: "published" as const,

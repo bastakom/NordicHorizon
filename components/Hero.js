@@ -1,6 +1,7 @@
 import Form from "@/app/components/Form/Form";
 import Hero from "@/app/components/Hero/Hero";
 import ImageText from "@/app/components/ImageText/ImageText";
+import { SportCards } from "@/app/components/Sport/sport-cards";
 import Team from "@/app/components/Team/Team";
 import { TeamInfo } from "@/app/components/Team/TeamInfo";
 import TileCards from "@/app/components/TileCards/TileCards";
@@ -45,6 +46,8 @@ const HeroBlock = ({ blok, config }) => {
         content={blok?.content_image}
         one_block_image_text={blok?.one_block_image_text}
       />
+
+      {blok?.sports_card ? <SportCards blok={blok} /> : null}
 
       {blok?.homedesign_pagedesign ? null : (
         <TileCards
