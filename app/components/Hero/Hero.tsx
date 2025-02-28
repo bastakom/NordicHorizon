@@ -29,7 +29,7 @@ const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
           )}
           {title && (
             <div className="absolute h-full w-full flex items-center justify-center">
-              <h1 className="text-[70px] text-white text-center z-10">
+              <h1 className="text-[45px] lg:text-[70px] text-white text-center z-10">
                 {title}
               </h1>
             </div>

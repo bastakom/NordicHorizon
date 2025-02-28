@@ -7,6 +7,7 @@ import { fetchPaket } from "@/app/lib/apireq";
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchPaket(params.slug);
+
   const { story } = res;
 
   return (
@@ -23,6 +24,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
         imageID={story.uuid}
         content={story.content.text}
         title={story.content.image_title}
+        big_text_block={story?.content.big_text_block}
       />
 
       <Include include={story?.content?.included} />
@@ -32,7 +34,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       <div className="max-w-[100%] lg:max-w-[40%] text-center m-auto p-5 lg:p-5">
         {story.content.contact_text}
       </div>
-      <Form title={story.content.title} />
+      <Form title={story.content.title} resend={story.content.resend_title} />
     </div>
   );
 };

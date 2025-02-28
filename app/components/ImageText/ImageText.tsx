@@ -8,6 +8,7 @@ interface Props {
   title?: string;
   content?: any;
   one_block_image_text?: any;
+  big_text_block?: boolean;
 }
 
 const ImageText = ({
@@ -17,18 +18,25 @@ const ImageText = ({
   title,
   content,
   one_block_image_text,
+  big_text_block,
 }: Props) => {
-
   return (
-    <div className={`${one_block_image_text && "pb-10"} ${pageDesign ? "bg-[#E9EFED]" : "container m-auto"}`}>
+    <div
+      className={`${one_block_image_text && "pb-10"} ${
+        pageDesign ? "bg-[#E9EFED]" : "container m-auto"
+      }`}
+    >
       <div
         className={`${
-          pageDesign
+          pageDesign || big_text_block
             ? `grid grid-cols-1 p-5 lg:p-0  ${
                 one_block_image_text
                   ? "lg:grid-cols-1"
+                  : big_text_block
+                  ? "lg:grid-cols-1"
                   : "lg:grid-cols-[55%_45%]"
-              }  items-center gap-14`
+              }
+ items-center gap-14`
             : `my-10 lg:my-24 grid gap-10 lg:gap-20 px-5 lg:px-20 mx-auto grid-cols-1 lg:grid-cols-2 items-center`
         }`}
       >
@@ -54,7 +62,9 @@ const ImageText = ({
         >
           {pageDesign ? (
             <h2
-              className={`text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px] ${one_block_image_text && "mx-auto"}`}
+              className={`text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]  ${
+                one_block_image_text && "mx-auto"
+              }`}
             >
               {title}
             </h2>
@@ -68,8 +78,12 @@ const ImageText = ({
             </h3>
           )}
           <span
-            className={`text-[17px] flex flex-col gap-5 max-w-[100%] lg:max-w-[80%] font-light oneheroblock ${
+            className={`text-[17px] flex flex-col gap-5 max-w-[100%]  font-light oneheroblock ${
               one_block_image_text && "mx-auto flex flex-col gap-5"
+            } ${
+              big_text_block
+                ? "lg:max-w-[70%] mx-auto lg:pb-10"
+                : "lg:max-w-[80%]"
             }`}
           >
             {render(content)}

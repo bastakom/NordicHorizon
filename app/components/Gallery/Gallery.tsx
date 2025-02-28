@@ -1,21 +1,30 @@
-'use client'
-import Image from 'next/image'
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md'
-import Slider from 'react-slick'
-import { useState } from 'react'
+"use client";
+import Image from "next/image";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import Slider from "react-slick";
+import { useState } from "react";
 
 const Gallery = ({ data }: any) => {
-  const [sliderRef, setSliderRef] = useState<any>(null)
+  const [sliderRef, setSliderRef] = useState<any>(null);
 
   const settings = {
     dots: false,
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-  }
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
-    <div className="my-10 px-10">
+    <div className="-mb-28 my-10 lg:pb-28 px-10">
       <Slider ref={setSliderRef} {...settings}>
         {data.map((item: any) => (
           <div key={item.id} className="px-2">
@@ -23,7 +32,7 @@ const Gallery = ({ data }: any) => {
               src={item.filename}
               width={500}
               height={500}
-              className="object-cover h-[500px]"
+              className="object-cover h-[400px] lg:h-[500px]"
               alt={item.filename}
             />
           </div>
@@ -39,7 +48,7 @@ const Gallery = ({ data }: any) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
