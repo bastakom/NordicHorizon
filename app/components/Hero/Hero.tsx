@@ -34,17 +34,32 @@ const Hero = ({ img, alt, title, pageDesign, content }: Props) => {
               </h1>
             </div>
           )}
-          {content?.video_asset && content?.video_asset ? (
+
+          {content?.video_asset && (
             <video
               autoPlay
               muted
               loop
               playsInline
-              className="h-full w-full object-cover"
+              className="hidden lg:block h-full w-full object-cover"
             >
               <source src={content.video_asset.filename} />
             </video>
-          ) : (
+          )}
+
+          {content?.hero_video_mobile && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="block lg:hidden h-full w-full object-cover"
+            >
+              <source src={content.hero_video_mobile.filename} />
+            </video>
+          )}
+
+          {!content?.video_asset && !content?.hero_video_mobile && (
             <Image
               className="object-cover"
               src={img}
