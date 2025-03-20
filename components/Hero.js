@@ -5,6 +5,7 @@ import { SportCards } from "@/app/components/Sport/sport-cards";
 import Team from "@/app/components/Team/Team";
 import { TeamInfo } from "@/app/components/Team/TeamInfo";
 import TileCards from "@/app/components/TileCards/TileCards";
+import { TravelTerms } from "@/app/components/TravelTerms/travel-terms";
 
 const HeroBlock = ({ blok, config }) => {
   const {
@@ -37,6 +38,8 @@ const HeroBlock = ({ blok, config }) => {
         blok={blok}
         pageDesign={blok?.homedesign_pagedesign}
       />
+      {blok.terms_content && <TravelTerms blok={blok} />}
+
       <ImageText
         pageDesign={blok?.homedesign_pagedesign}
         image={blok?.img_image.filename}
