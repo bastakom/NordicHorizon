@@ -12,6 +12,7 @@ export default async function page({
   const slugName = pathname === undefined ? `hem` : pathname;
 
   const db = await fetchSitemap();
+
   try {
     const { data } = await fetchData(slugName, params.lang);
     const config = await fetchConfig();
@@ -48,7 +49,8 @@ export const generateMetadata = async ({
   const data = await getMeta(slugName);
 
   return {
-    title: data?.story.content?.SEO?.title || "Nordic Horizon Travelgroup",
-    description: data?.story.content?.SEO?.description || "Default description",
+    title: data?.story?.content?.SEO?.title || "Nordic Horizon Travelgroup",
+    description:
+      data?.story?.content?.SEO?.description || "Default description",
   };
 };

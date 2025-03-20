@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <StoryblokProvider>
-      <html>
+      <html lang="sv">
         <head>
           <Head>
             <title>{(metadata.title ?? "Default Title") as string}</title>

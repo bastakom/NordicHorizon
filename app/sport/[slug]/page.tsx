@@ -1,9 +1,25 @@
 import ImageText from "@/app/components/ImageText/ImageText";
 import { fetchSport } from "@/app/lib/apireq";
+import { Metadata } from "next";
 
 type PageProps = {
   params: {
     slug: string;
+  };
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const data = await fetchSport(pathname);
+
+  return {
+    title: data?.story?.content?.SEO?.title || data?.story?.name,
+    description:
+      data?.story?.content?.SEO?.description || "Default description",
   };
 };
 
