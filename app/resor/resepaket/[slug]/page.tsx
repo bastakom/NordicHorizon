@@ -4,6 +4,21 @@ import Hero from "@/app/components/Hero/Hero";
 import ImageText from "@/app/components/ImageText/ImageText";
 import Include from "@/app/components/Include/Include";
 import { fetchPaket } from "@/app/lib/apireq";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const data = await fetchPaket(params.slug);
+
+  return {
+    title: data?.story?.content?.seo?.title || data?.story?.name,
+    description:
+      data?.story?.content?.seo?.description || "Default description",
+  };
+};
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchPaket(params.slug);
