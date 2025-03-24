@@ -1,9 +1,30 @@
 import Form from "@/app/components/Form/Form";
 import TileCards from "@/app/components/TileCards/TileCards";
-import { fetchAllPaket, fetchConfig, fetchResor } from "@/app/lib/apireq";
+import {
+  fetchAllPaket,
+  fetchConfig,
+  fetchPaket,
+  fetchResor,
+} from "@/app/lib/apireq";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const data = await fetchResor(pathname);
+
+  return {
+    title: data?.story?.content?.seo?.title || data?.story?.name,
+    description:
+      data?.story?.content?.seo?.description || "Default description",
+  };
+};
 
 const page = async ({ params }: { params: { slug: string } }) => {
   const pathname = params.slug;
