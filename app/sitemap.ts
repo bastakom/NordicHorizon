@@ -22,8 +22,6 @@ export default async function sitemap() {
   }))
 
 
-  console.log("resor", resorEntries);
-
   return [
     { url: "https://nhtravel.se" },
     { url: "https://nhtravel.se/resor" },
