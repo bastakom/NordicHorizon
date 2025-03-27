@@ -30,6 +30,9 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <>
+      <h1 className="absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden clip-rect(0,0,0,0) whitespace-nowrap border-0">
+        {sport.story.name}
+      </h1>
       <ImageText
         pageDesign={sport?.story?.content?.homedesign_pagedesign}
         image={sport?.story?.content?.img_image.filename}

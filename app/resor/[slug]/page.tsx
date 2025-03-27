@@ -56,6 +56,10 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div>
+      <h1 className="absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden clip-rect(0,0,0,0) whitespace-nowrap border-0">
+        {res.story.name}
+      </h1>
+
       <div className="relative h-[60vh] w-full flex items-center justify-center">
         <div className="absolute h-full w-full flex items-center justify-center">
           {res?.story?.name && !res.story.content.hero_video && (
