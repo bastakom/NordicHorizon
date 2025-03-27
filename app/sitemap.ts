@@ -21,8 +21,6 @@ export default async function sitemap() {
     lastModified: `${item.updated_at}`,
   }))
 
-
-  console.log(resor)
   return [
     { url: "https://nhtravel.se" },
     { url: "https://nhtravel.se/resor" },
