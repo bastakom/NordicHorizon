@@ -61,13 +61,13 @@ const ImageText = ({
           }`}
         >
           {pageDesign ? (
-            <h2
+            <h1
               className={`text-[29px] max-w-[100%] lg:max-w-[70%] font-light leading-[35px]  ${
                 one_block_image_text && "mx-auto"
               }`}
             >
               {title}
-            </h2>
+            </h1>
           ) : (
             <h3
               className={`text-[39px] lg:text-[35px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px] ${
