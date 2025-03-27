@@ -5,7 +5,7 @@ export default async function sitemap() {
     `https://api.storyblok.com/v2/cdn/stories?cv=1736934265&token=${process.env.STORYBLOCK_API_TOKEN}`
   );
 
-  const dbresor = await fetch(`https://api.storyblok.com/v2/cdn/stories?cv=1742462431&starts_with=resor&token=${process.env.STORYBLOCK_API_TOKEN}`)
+  const dbresor = await fetch(`https://api.storyblok.com/v2/cdn/stories?cv=1742462431&starts_with=resor&excluding_slugs=resor/resepaket*&token=${process.env.STORYBLOCK_API_TOKEN}`)
 
   const { stories } = await db.json();
   const { stories: resor } = await dbresor.json();
@@ -22,6 +22,7 @@ export default async function sitemap() {
   }))
 
 
+  console.log(resor)
   return [
     { url: "https://nhtravel.se" },
     { url: "https://nhtravel.se/resor" },
