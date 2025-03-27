@@ -1,18 +1,26 @@
 import { MetadataRoute } from "next";
-import { fetchSitemap } from "./lib/apireq";
-import { url } from "inspector";
 
 export default async function sitemap() {
-  //   const sitemap = await fetchSitemap();
   const db = await fetch(
     `https://api.storyblok.com/v2/cdn/stories?cv=1736934265&token=${process.env.STORYBLOCK_API_TOKEN}`
   );
+
+  const dbresor = await fetch(`https://api.storyblok.com/v2/cdn/stories?cv=1742462431&starts_with=resor&token=${process.env.STORYBLOCK_API_TOKEN}`)
+
   const { stories } = await db.json();
+  const { stories: resor } = await dbresor.json();
 
   const postEntries: MetadataRoute.Sitemap = stories.map((item: any) => ({
     url: `https://nhtravel.se/${item.full_slug}`,
     lastModified: `${item.updated_at}`,
   }));
+
+
+  const resorEntries: MetadataRoute.Sitemap = resor.map((item: any) => ({
+    url: `https://nhtravel.se/resor/${item.slug}`,
+    lastModified: `${item.updated_at}`,
+  }))
+
 
   return [
     { url: "https://nhtravel.se" },
@@ -26,5 +34,6 @@ export default async function sitemap() {
     { url: "https://nhtravel.se/kontakt-teaminfo" },
 
     ...postEntries,
+    ...resorEntries,
   ];
 }
