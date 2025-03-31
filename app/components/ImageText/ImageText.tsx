@@ -27,23 +27,23 @@ const ImageText = ({
       }`}
     >
       <div
-        className={`${
+        className={` ${
           pageDesign || big_text_block
             ? `grid grid-cols-1 p-5 lg:p-0  ${
                 one_block_image_text
                   ? "lg:grid-cols-1"
                   : big_text_block
                   ? "lg:grid-cols-1"
-                  : "lg:grid-cols-[55%_45%]"
+                  : "lg:grid-cols-[45%_55%] lg:pb-10 lg:pt-20 lg:px-10"
               }
- items-center gap-14`
+ items-start gap-10 `
             : `my-10 lg:my-24 grid gap-10 lg:gap-20 px-5 lg:px-20 mx-auto grid-cols-1 lg:grid-cols-2 items-center`
         }`}
       >
         {image && (
           <div
             className={`w-full relative h-[300px] ${
-              pageDesign ? "lg:h-[800px]" : "lg:h-[600px]"
+              pageDesign ? "lg:min-h-[600px]" : "lg:h-[600px]"
             } `}
           >
             <Image
@@ -83,7 +83,7 @@ const ImageText = ({
             } ${
               big_text_block
                 ? "lg:max-w-[70%] mx-auto lg:pb-10"
-                : "lg:max-w-[80%]"
+                : "lg:max-w-[90%]"
             }`}
           >
             {render(content)}
