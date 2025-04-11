@@ -37,6 +37,8 @@ const Page = async ({ params }: PageProps) => {
         title={sport?.story?.content?.title_image}
         content={sport?.story?.content.content_image}
         one_block_image_text={sport?.one_block_image_text}
+        form_text={sport?.story?.content.form_text}
+        resend_title={sport?.story?.content.resend_title}
       />
     </>
   );

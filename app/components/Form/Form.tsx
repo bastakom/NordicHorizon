@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { render } from "storyblok-rich-text-react-renderer";
+import { Toaster, toast } from "sonner";
 
 const Form = ({ title, resend }: any) => {
   const [sent, setSent] = useState(false);
@@ -40,9 +41,11 @@ const Form = ({ title, resend }: any) => {
           resend_title: resend,
         });
         setSent(true);
+        toast("Tack för ditt meddelande, vi återkommer snarast!");
       } else {
         setStatus("error");
         setSent(false);
+        toast("Tyvärr gick något snett!");
       }
     } catch (error) {
       console.error("Error sending message.", error);
@@ -52,6 +55,7 @@ const Form = ({ title, resend }: any) => {
 
   return (
     <div className="py-20 flex flex-col w-full justify-center items-center">
+      <Toaster closeButton={true} />
       <span className="text-center mb-10 text-[29px]">{render(title)}</span>
       <form className="flex flex-col m-auto form" onSubmit={handleButtonClick}>
         <input
