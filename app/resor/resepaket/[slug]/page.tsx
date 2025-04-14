@@ -43,6 +43,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
         content={story.content.text}
         title={story.content.image_title}
         big_text_block={story?.content.big_text_block}
+        res={story.content}
+        slug={story.slug}
       />
 
       <Include include={story?.content?.included} />

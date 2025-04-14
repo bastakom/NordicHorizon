@@ -1,3 +1,5 @@
+"use client";
+import { PriceBlock } from "@/components/ui/price-block";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -9,6 +11,8 @@ interface Props {
   content?: any;
   one_block_image_text?: any;
   big_text_block?: boolean;
+  res: any;
+  slug: any;
 }
 
 const ImageText = ({
@@ -19,6 +23,8 @@ const ImageText = ({
   content,
   one_block_image_text,
   big_text_block,
+  res,
+  slug,
 }: Props) => {
   return (
     <div
@@ -90,6 +96,8 @@ const ImageText = ({
           </span>
         </div>
       </div>
+
+      <PriceBlock res={res} slug={slug} />
     </div>
   );
 };

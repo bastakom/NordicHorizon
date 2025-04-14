@@ -33,8 +33,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
 
-  console.log(res);
-
   const {
     story: {
       content: {
