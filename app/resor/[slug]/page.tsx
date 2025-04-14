@@ -6,6 +6,7 @@ import {
   fetchPaket,
   fetchResor,
 } from "@/app/lib/apireq";
+import { FaqBlock } from "@/components/ui/faq-block";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,6 +32,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const res = await fetchResor(pathname);
   const paket = await fetchAllPaket();
   const config = await fetchConfig();
+
+  console.log(res);
 
   const {
     story: {
@@ -68,24 +71,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </h1>
           )}
         </div>
-        {/* {!res.story.content?.hero_video.id === false ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className=" h-full w-full object-cover"
-          >
-            <source src={res.story.content.hero_video.filename} />
-          </video>
-        ) : (
-          <Image
-            src={res?.story?.content?.hero_image.filename}
-            alt={res?.story?.name}
-            fill
-            className="object-cover"
-          />
-        )} */}
 
         {res.story.content?.hero_video && (
           <video
@@ -121,37 +106,40 @@ const page = async ({ params }: { params: { slug: string } }) => {
           )}
       </div>
       {matchedPaket.length > 0 && (
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] lg:h-100vh justify-center">
-          {matchedPaket &&
-            Array.isArray(matchedPaket) &&
-            matchedPaket.map((item: any) => {
-              return (
-                <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
-                  <div className="w-full lg:h-[268px] relative">
-                    <Image
-                      src={
-                        item.content.image.filename ||
-                        "https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
-                      }
-                      fill
-                      className="object-cover"
-                      alt={item.name}
-                    />
+        <div>
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] lg:h-100vh justify-center">
+            {matchedPaket &&
+              Array.isArray(matchedPaket) &&
+              matchedPaket.map((item: any) => {
+                return (
+                  <div className="px-4 pt-4 pb-10 border-black  border w-full items-center justify-between text-center flex flex-col gap-8">
+                    <div className="w-full lg:h-[268px] relative">
+                      <Image
+                        src={
+                          item.content.image.filename ||
+                          "https://a.storyblok.com/f/302737/760x432/1a75af83bf/phanthiet.png"
+                        }
+                        fill
+                        className="object-cover"
+                        alt={item.name}
+                      />
+                    </div>
+                    <span className="font-light">
+                      <h3 className="text-[30px]">{item.name}</h3>
+                      <h2 className="text-[14px]">{item.content.category}</h2>
+                    </span>
+                    <span>{render(item.content.meta)}</span>
+                    <Link
+                      className="button flex justify-center max-w-[155px]"
+                      href={`/${item.full_slug}`}
+                    >
+                      Läs mer
+                    </Link>
                   </div>
-                  <span className="font-light">
-                    <h3 className="text-[30px]">{item.name}</h3>
-                    <h2 className="text-[14px]">{item.content.category}</h2>
-                  </span>
-                  <span>{render(item.content.meta)}</span>
-                  <Link
-                    className="button flex justify-center max-w-[155px]"
-                    href={`/${item.full_slug}`}
-                  >
-                    Läs mer
-                  </Link>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
+          <FaqBlock res={res} />
         </div>
       )}
       <TileCards
