@@ -17,6 +17,9 @@ export const generateMetadata = async ({
     title: data?.story?.content?.seo?.title || data?.story?.name,
     description:
       data?.story?.content?.seo?.description || "Default description",
+    alternates: {
+      canonical: `https://nhtravel.se/${data?.story?.full_slug}`,
+    },
   };
 };
 
