@@ -50,7 +50,7 @@ const ImageText = ({
           <div
             className={`w-full relative h-[300px] ${
               pageDesign ? "lg:min-h-[600px]" : "lg:h-[600px]"
-            } `}
+            }  ${big_text_block ? "mt-0 lg:mt-12" : "mt-0"}`}
           >
             <Image
               src={image || ""}
@@ -76,8 +76,12 @@ const ImageText = ({
             </h1>
           ) : (
             <h3
-              className={`text-[39px] lg:text-[35px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px] ${
+              className={`text-[39px] lg:text-[35px]  font-light leading-[35px] lg:leading-[35px] ${
                 one_block_image_text && "mx-auto"
+              }  ${
+                big_text_block
+                  ? " max-w-[100%] lg:max-w-[70%] lg:ml-56"
+                  : "max-w-[100%] lg:max-w-[90%] "
               }`}
             >
               {title}
@@ -97,7 +101,7 @@ const ImageText = ({
         </div>
       </div>
 
-      <PriceBlock res={res} slug={slug} />
+      {res?.fields?.length > 0 && <PriceBlock res={res} slug={slug} />}
     </div>
   );
 };

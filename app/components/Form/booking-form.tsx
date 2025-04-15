@@ -91,7 +91,9 @@ export const BookingForm = ({ title, slug, season }: any) => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="mail">Mail*</label>
+          <label htmlFor="mail" className="mt-4 lg:mt-0">
+            Mail*
+          </label>
           <input
             type="text"
             id="mail"
@@ -118,7 +120,9 @@ export const BookingForm = ({ title, slug, season }: any) => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="city">Stad*</label>
+          <label htmlFor="city" className="mt-4 lg:mt-0">
+            Stad*
+          </label>
           <input
             type="text"
             id="city"
@@ -145,7 +149,9 @@ export const BookingForm = ({ title, slug, season }: any) => {
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="destinationTitle">Resnamn*</label>
+          <label htmlFor="destinationTitle" className="mt-4 lg:mt-0">
+            Resnamn*
+          </label>
           <input
             type="text"
             id="destinationTitle"
@@ -166,7 +172,7 @@ export const BookingForm = ({ title, slug, season }: any) => {
           <select
             name="adults"
             id="adults"
-            className="border-[2px] border-black p-2 rounded-md"
+            className="border-[2px] h-[45px] bg-white border-black p-2 rounded-md"
             defaultValue=""
             value={formData.adults}
             onChange={handleSelectChange}
@@ -186,13 +192,13 @@ export const BookingForm = ({ title, slug, season }: any) => {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="children" className="mb-1 font-medium">
+          <label htmlFor="children" className="mb-1 font-medium mt-4 lg:mt-0">
             Antal barn (0–15 år)
           </label>
           <select
             name="children"
             id="children"
-            className="border-[2px] border-black p-2 rounded-md"
+            className="border-[2px] h-[45px] bg-white border-black p-2 rounded-md"
             defaultValue=""
             value={formData.children}
             onChange={handleSelectChange}
@@ -216,19 +222,21 @@ export const BookingForm = ({ title, slug, season }: any) => {
             type="date"
             id="departure"
             name="departure"
-            className="border-[2px] border-black p-2  rounded-md "
+            className="border-[2px] border-black p-2 w-[350px] lg:w-[100%] bg-white h-[45px]  rounded-md "
             value={formData.departure}
             onChange={handleInputChange}
             required
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="arrival">Hemresedatum*</label>
+          <label htmlFor="arrival" className="mt-4 lg:mt-0">
+            Hemresedatum*
+          </label>
           <input
             type="date"
             id="arrival"
             name="arrival"
-            className="border-[2px] border-black p-2  rounded-md"
+            className="border-[2px] border-black p-2 w-[350px] lg:w-[100%] h-[45px] bg-white rounded-md"
             value={formData.arrival}
             onChange={handleInputChange}
             required
