@@ -105,7 +105,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
       {matchedPaket.length > 0 && (
         <div>
-          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-14 m-auto py-5 lg:py-28 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] lg:h-100vh justify-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-14 m-auto py-5 lg:pt-28 lg:pb-5 px-5 lg:px-14 max-w-[100%] lg:max-w-[80%] lg:h-100vh justify-center">
             {matchedPaket &&
               Array.isArray(matchedPaket) &&
               matchedPaket.map((item: any) => {
@@ -137,9 +137,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
                 );
               })}
           </div>
-          <FaqBlock res={res} />
         </div>
       )}
+      {res?.story?.content?.FAQ_content?.[0]?.faq_field?.length > 0 && (
+        <FaqBlock res={res} />
+      )}
+
       <TileCards
         cardTitleOne={title_1}
         cardContentOne={content_1}
