@@ -87,7 +87,7 @@ export const BookingForm = ({ title, slug, season }: any) => {
 
   return (
     <form className="flex flex-col lg:w-[70%] " onSubmit={handleSubmit}>
-      <h2 className="text-[30px] text-center mb-10">
+      <h2 className="text-[25px] lg:text-[30px] text-center mb-10">
         Bokningsförfrågan / {title}
       </h2>
       <div className="lg:grid grid-cols-2 gap-4 mb-4">

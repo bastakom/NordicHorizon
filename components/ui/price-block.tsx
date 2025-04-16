@@ -91,7 +91,7 @@ export const PriceBlock = ({ res, slug }: any) => {
               onClick={() => handleForm(null)}
             >
               <div
-                className="bg-white p-8 rounded-lg lg:max-w-[70%] w-full max-h-[90vh] overflow-y-auto relative"
+                className="bg-white p-8 rounded-lg lg:max-w-[70%] w-full h-full lg:max-h-[90vh] overflow-y-auto relative"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
