@@ -1,3 +1,5 @@
+"use client";
+import { PriceBlock } from "@/components/ui/price-block";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -9,6 +11,8 @@ interface Props {
   content?: any;
   one_block_image_text?: any;
   big_text_block?: boolean;
+  res: any;
+  slug: any;
 }
 
 const ImageText = ({
@@ -19,6 +23,8 @@ const ImageText = ({
   content,
   one_block_image_text,
   big_text_block,
+  res,
+  slug,
 }: Props) => {
   return (
     <div
@@ -44,7 +50,7 @@ const ImageText = ({
           <div
             className={`w-full relative h-[300px] ${
               pageDesign ? "lg:min-h-[600px]" : "lg:h-[600px]"
-            } `}
+            }  ${big_text_block ? "mt-0 lg:mt-12" : "mt-0"}`}
           >
             <Image
               src={image || ""}
@@ -70,8 +76,12 @@ const ImageText = ({
             </h1>
           ) : (
             <h3
-              className={`text-[39px] lg:text-[35px] max-w-[100%] lg:max-w-[90%] font-light leading-[35px] lg:leading-[35px] ${
+              className={`text-[39px] lg:text-[35px]  font-light leading-[35px] lg:leading-[35px] ${
                 one_block_image_text && "mx-auto"
+              }  ${
+                big_text_block
+                  ? " max-w-[100%] lg:max-w-[70%] lg:ml-56"
+                  : "max-w-[100%] lg:max-w-[90%] "
               }`}
             >
               {title}
@@ -90,6 +100,8 @@ const ImageText = ({
           </span>
         </div>
       </div>
+
+      {res?.fields?.length > 0 && <PriceBlock res={res} slug={slug} />}
     </div>
   );
 };

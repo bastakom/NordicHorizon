@@ -48,6 +48,8 @@ const HeroBlock = ({ blok, config }) => {
         title={blok?.title_image}
         content={blok?.content_image}
         one_block_image_text={blok?.one_block_image_text}
+        res={null}
+        slug={null}
       />
 
       {blok?.sports_card ? <SportCards blok={blok} /> : null}
