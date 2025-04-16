@@ -27,6 +27,7 @@
     "resend": "^4.0.0",
     "sass": "^1.78.0",
     "slick-carousel": "^1.8.1",
+    "sonner": "^2.0.3",
     "storyblok-rich-text-react-renderer": "^2.9.2",
     "zustand": "^4.5.4"
   },

@@ -46,6 +46,8 @@ const page = async ({ params }: { params: { slug: string } }) => {
         content={story.content.text}
         title={story.content.image_title}
         big_text_block={story?.content.big_text_block}
+        form_text={story?.content.form_text}
+        resend_title={story?.content.resend_title}
         res={story.content}
         slug={story.slug}
       />

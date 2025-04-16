@@ -18,7 +18,7 @@ export const PriceBlock = ({ res, slug }: any) => {
             : "flex justify-center lg:max-w-[100%] lg:px-14 lg:pb-10 px-4"
         }
       >
-        <div className="lg:w-[73%] mx-auto py-10 w-full">
+        <div className="lg:w-[1045px] mx-auto py-10 w-full">
           <h3 className="text-center lg:text-start text-[30px] mb-5">
             {res?.price_title}
           </h3>
