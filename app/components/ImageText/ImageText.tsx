@@ -1,3 +1,5 @@
+"use client";
+import { PriceBlock } from "@/components/ui/price-block";
 import Image from "next/image";
 import { render } from "storyblok-rich-text-react-renderer";
 import Form from "../Form/Form";
@@ -12,6 +14,8 @@ interface Props {
   big_text_block?: boolean;
   form_text: any;
   resend_title: string;
+  res: any;
+  slug: any;
 }
 
 const ImageText = ({
@@ -24,6 +28,8 @@ const ImageText = ({
   big_text_block,
   form_text,
   resend_title,
+  res,
+  slug,
 }: Props) => {
   return (
     <div>
@@ -105,6 +111,8 @@ const ImageText = ({
           <Form resend={resend_title} title={""} />
         </div>
       )}
+
+      {res?.fields?.length > 0 && <PriceBlock res={res} slug={slug} />}
     </div>
   );
 };
