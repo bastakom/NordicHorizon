@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+type FlightClass = "Business" | "Economy";
 export const BookingForm = ({ title, slug, season }: any) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,6 +16,7 @@ export const BookingForm = ({ title, slug, season }: any) => {
     customerType: "",
     title: slug || "",
     season: season || "",
+    flightClass: [] as FlightClass[],
   });
 
   const [isChecked, setIsChecked] = useState(false);
@@ -35,6 +36,15 @@ export const BookingForm = ({ title, slug, season }: any) => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value as FlightClass;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      flightClass: [value],
     }));
   };
 
@@ -66,6 +76,7 @@ export const BookingForm = ({ title, slug, season }: any) => {
           customerType: "",
           title: "",
           season: "",
+          flightClass: [] as FlightClass[],
         });
         setIsChecked(false);
       }
@@ -76,7 +87,9 @@ export const BookingForm = ({ title, slug, season }: any) => {
 
   return (
     <form className="flex flex-col lg:w-[70%] " onSubmit={handleSubmit}>
-      <h2 className="text-[30px] text-center mb-10">{title}</h2>
+      <h2 className="text-[30px] text-center mb-10">
+        Bokningsförfrågan / {title}
+      </h2>
       <div className="lg:grid grid-cols-2 gap-4 mb-4">
         <div className="flex flex-col">
           <label htmlFor="name">För och efternamn*</label>
@@ -173,7 +186,6 @@ export const BookingForm = ({ title, slug, season }: any) => {
             name="adults"
             id="adults"
             className="border-[2px] h-[45px] bg-white border-black p-2 rounded-md"
-            defaultValue=""
             value={formData.adults}
             onChange={handleSelectChange}
           >
@@ -199,7 +211,6 @@ export const BookingForm = ({ title, slug, season }: any) => {
             name="children"
             id="children"
             className="border-[2px] h-[45px] bg-white border-black p-2 rounded-md"
-            defaultValue=""
             value={formData.children}
             onChange={handleSelectChange}
           >
@@ -244,9 +255,31 @@ export const BookingForm = ({ title, slug, season }: any) => {
         </div>
       </div>
 
-      <label htmlFor="message" className="mt-4">
-        Övrig information
-      </label>
+      <div className="mt-4 mb-4 flex flex-col">
+        <label className="mb-2">Önskemål av flygklass</label>
+
+        <label htmlFor="business" className="flex items-center gap-2">
+          <input
+            type="radio"
+            id="business"
+            value="Business"
+            checked={formData.flightClass.includes("Business")}
+            onChange={handleCheckboxChange}
+          />
+          Business
+        </label>
+
+        <label htmlFor="economy" className="flex items-center gap-2">
+          <input
+            type="radio"
+            id="economy"
+            value="Economy"
+            checked={formData.flightClass.includes("Economy")}
+            onChange={handleCheckboxChange}
+          />
+          Economy
+        </label>
+      </div>
 
       <textarea
         id="message"

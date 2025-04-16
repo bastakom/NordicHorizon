@@ -18,6 +18,7 @@ export async function POST(req: Request) {
     message,
     season,
     title,
+    flightClass,
   } = await req.json();
 
   const messageBody = `
@@ -34,6 +35,12 @@ export async function POST(req: Request) {
          <p>Antal barn: ${children}</p>
          <p>Ankomstdatum: ${departure}</p>
          <p>Avresedatum: ${arrival}</p>
+         <p>Flygklass: ${
+           flightClass.length > 0
+             ? flightClass.join(", ")
+             : "Ingen vald flygklass"
+         }</p>
+
       <p>Meddelande: ${message}</p>
     </div>
   `;
